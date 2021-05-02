@@ -1,19 +1,17 @@
-import logo from './logo.svg';
+import Form from "./Form.js";
+import Overview from "./Overview.js";
+import Weather from "./Weather.js";
 import './App.css';
-import Form from "./Form.js"
 
 function App() {
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-    
-          <h1>Hello From Andrea</h1>
-          < Form />
-      </header>
+      <div className="container" style={{ 
+      backgroundImage: `url("https://images.theconversation.com/files/232705/original/file-20180820-30593-1nxanpj.jpg?ixlib=rb-1.1.0&q=200&auto=format&w=1000")` 
+    }}>
+          < Weather />
+    </div>
     </div>
   );
 }
