@@ -12,6 +12,10 @@ function App() {
     }}>
           < Weather />
     </div>
+    <small id="repository">
+<a href="https://github.com/anpascott/react-weather-app.git" target="_blank">Open-source code </a>
+ by Andrea Pacheco
+</small>
     </div>
   );
 }
