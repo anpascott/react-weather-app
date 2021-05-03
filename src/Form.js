@@ -1,17 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import './Form.css';
 
 export default function Form () {
-return (
-    <div className="Form">
-      <form className="mb-3">
+  const [city, setCity] = useState("null");
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    let apiKey = "54b3e201447a1afa52495e15558f28df";
+    let units = "metric";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
+    axios.get(apiUrl).then(displayWeather);
+  }
+
+  function displayWeather(response) {
+    alert (response.data.main.temp);
+  }
+
+  function updateCity(event) {
+    setCity(event.target.value);
+  }
+
+  let form = (
+     <form className="mb-3" onSubmit={handleSubmit}>
         <div className="row">
           <div className="col-8">
             <input
               type="search"
               placeholder="Type a city.."
-              className="form-control"
+              className=""
               autoComplete="off"
+              onChange={updateCity}
             />
           </div>
           <div className="col-2">
@@ -32,6 +51,11 @@ return (
           </div>
         </div>
       </form>
+  );
+  
+return (
+    <div className="Form">
+     {form}
     </div>
   );
 }
